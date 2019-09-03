@@ -5,6 +5,13 @@ export const setCurrentUser = user => {
         user
     }
 }
+
+export const clearCurrentUser = () => {
+    return {
+        type: "CLEAR_CURRENT_USER"
+    }
+}
+
 //asynchronous action creators
 export const login = credentials => {
     return dispatch => {
@@ -25,7 +32,7 @@ export const login = credentials => {
                 console.log("Sucess, you are logged in")
             }
         })
-        .catch(console.log("passei por aqui")) 
+        .catch(console.log("error during logging process")) 
     }
 }
 
@@ -48,5 +55,16 @@ export const getCurrentUser = () => {
             }
         })
         .catch(console.log("something is wrong"))
+    }
+}
+
+
+export const logout = e => {
+    return dispatch => {
+        dispatch(clearCurrentUser())
+        return fetch('http://localhost:3001/api/v1/logout', {
+            credentials: "include",
+            method: "DELETE",
+        })
     }
 }
