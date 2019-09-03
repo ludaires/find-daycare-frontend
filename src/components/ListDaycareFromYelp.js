@@ -1,8 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+
+// THIS COMPONENT DISPLAY THE RESULTS OF DAYCARES' SEARCH
 const ListDaycareFromYelp = (props) => {
-    
+
+    // THIS FUNCTION DISPLAY THE DAYCARES REVIEWS
     const renderReviews = (daycare) => {
         if (!daycare.reviews) {
             return;
@@ -23,6 +26,7 @@ const ListDaycareFromYelp = (props) => {
         )
     }
 
+    // THIS IS TO DISPLAY 
     const getReviews = (event, daycare) =>  {   
         event.preventDefault();
         renderReviews(daycare)
