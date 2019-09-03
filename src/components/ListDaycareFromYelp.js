@@ -2,8 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const ListDaycareFromYelp = (props) => {
-
-   
+    
     const renderReviews = (daycare) => {
         if (!daycare.reviews) {
             return;
@@ -26,7 +25,7 @@ const ListDaycareFromYelp = (props) => {
 
     const getReviews = (event, daycare) =>  {   
         event.preventDefault();
-        
+        renderReviews(daycare)
     }
       
     const renderDaycares = () => {
