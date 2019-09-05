@@ -20,8 +20,9 @@ export const fetchDaycareFromYelp = (value) => {
                 return b.rating - a.rating;
             });        
             // MY ERRORS IS HERE. I'M TRYING ADD A NEW KEY (.REVIEW) IN THE DAYCARE OBJECT. THEN I CAN DISPLAY THIS INFORMATION TO MY USERS.
-            let newBussinessesArray = businesses.map(business => loadingReviewsYelp(business))
-            return console.log(newBussinessesArray)
+            const newBussinessesArray = businesses.map(business => loadingReviewsYelp(business)) 
+              
+            return newBussinessesArray
         })
         // TRY TO ADD DAYCARES TO THE STORE.
         .then(res => dispatch(daycaresFromYelp(res)))
