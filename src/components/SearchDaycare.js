@@ -28,7 +28,6 @@ class SearchDaycare extends React.Component {
                     <input type="submit" value="Search"/>
                 </form>
             </div>
-           
         )   
     }   
 }
