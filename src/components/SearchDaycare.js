@@ -21,12 +21,14 @@ class SearchDaycare extends React.Component {
 
     render (){
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <label>Informe the ZIP code you want to do your search, please!</label>
-                    <input onChange={this.handleZip} type="text" placeholder="ZIPCODE" value={this.state.zip} />
-                    <input type="submit" value="Search"/>
-                </form>
+            <div className="search">
+                <div className="search__form">
+                    <form onSubmit={this.handleSubmit}>
+                        <h1>Find Daycare near me </h1>
+                        <input className="search__field" onChange={this.handleZip} type="text" placeholder="ZIPCODE" value={this.state.zip} />
+                        <input className="search__btn" type="submit" value="Search"/>
+                    </form>
+                </div>
             </div>
         )   
     }   
