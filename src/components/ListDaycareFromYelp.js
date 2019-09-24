@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Reviews from './Reviews.js';
+import Icon from '@mdi/react'
+import { mdiMapMarker } from '@mdi/js';
 
 
 // THIS COMPONENT DISPLAY THE RESULTS OF DAYCARES' SEARCH
@@ -8,24 +10,25 @@ const ListDaycareFromYelp = (props) => {
 
     const renderDaycares = () => {
         return props.daycares.map((daycare) => {
-            return (                               
-                <div className="daycare-card" key={daycare.id}>
-                    <img className="daycare__img" src={daycare.image_url} alt={`daycare: ${daycare.name}`}/>
-                    <h1>{daycare.name}</h1>
-                    <h2>Rating: {daycare.rating}</h2>  
-                    <p>{daycare.location.display_address} | {daycare.display_phone} </p>
-                    <Reviews key={daycare.id} reviews={daycare.reviews}/>
-                </div>           
+            return (          
+                <li className="daycare-card" key={daycare.id}>
+                    {/* <div className="daycare__information"> */}
+                        <h1 className="daycare__name">{daycare.name}</h1>
+                        <img className="daycare__img" src={daycare.image_url} alt={`daycare: ${daycare.name}`}/>
+                        {/* <div> I have to figure out a way to put the icon close to the address */}
+                            {/* <Icon path={mdiMapMarker} title="Daycare Address" description={daycare.location.display_address} size={1} color="red"/> */}
+                            <p className="daycare__address"> <Icon className="daycare__icon" path={mdiMapMarker} title="Daycare Address" description={daycare.location.display_address} size={1} color="red"/> {daycare.location.address1} {daycare.location.city}, {daycare.location.state} {daycare.location.zip_code}| {daycare.display_phone} </p>
+                        {/* </div> */}
+                        <h2 className="daycare__rating">Rating: {daycare.rating}</h2>  
+                        <Reviews key={daycare.id} reviews={daycare.reviews}/>
+                    {/* </div> */}
+                </li>  
             );
         })
     }
 
     return (  
-        <div>  
-            <ul>
-                {renderDaycares()}
-            </ul>
-        </div> 
+        <ul>{renderDaycares()}</ul>
     )
 }
 

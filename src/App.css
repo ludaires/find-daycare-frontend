@@ -1,5 +1,10 @@
+
 * {
   box-sizing: border-box;
+}
+
+body {
+  display: grid;
 }
 
 /* .App {
@@ -106,3 +111,75 @@ h1 {
 }
 
 /* END OF CSS FOR SEARCH COMPONENT */
+
+/* STYLE ListDaycareFromYelp COMPONENT */
+
+.daycare-rendering {
+  padding: 2px;
+  display: grid;
+}
+
+.daycare-card {
+  background-color: rgb(243, 243, 243);
+  width: 80%;
+  /* height: 55%; */
+  margin: auto;
+  /* border: 1.5px solid; */
+  display: grid;
+  grid-gap: 10px;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.daycare__img {
+  width: 80%;
+  margin: auto;
+  box-sizing: content-box; 
+}
+
+.daycare__name {
+  padding: 2%;
+  margin: auto;
+  color: rgb(70, 67, 67);
+}
+
+.daycare__rating {
+  padding-left: 126px;
+  padding-bottom: 2%;
+  margin: 0;
+  color: rgb(79, 74, 74);
+}
+
+.daycare__icon {
+  width: 1.2rem;
+    height: 1.2rem;
+}
+.daycare__address {
+  padding-left: 126px;
+  font-size: 16px;
+  margin-top: 1px;
+  color: rgb(79, 74, 74);
+}
+
+.daycare__review {
+  width: 90%;
+  text-align: justify;
+  padding-left: 126px;
+  color: rgb(118, 115, 115);
+} 
+
+.daycare__link {
+  padding-left: 126px;
+  color: rgb(42, 131, 199);
+}
+
+.daycare__link:hover {
+  color: rgb(6, 101, 174);
+}
+
+/*  */
+
+/* END STYLE ListDaycareFromYelp COMPONENT */
+
