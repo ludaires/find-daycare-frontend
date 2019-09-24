@@ -17,6 +17,9 @@ class SearchDaycare extends React.Component {
     handleSubmit = e => {
         e.preventDefault();
         this.props.fetchDaycareFromYelp(this.state.zip)
+        this.setState({
+            zip: ''
+        })
     }
 
     render (){
