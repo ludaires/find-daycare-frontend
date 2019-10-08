@@ -7,7 +7,7 @@ export const addDaycare = (bussiness) => {
 
 export const getDaycares = (bussiness) => {
     return {
-        type: 'GET_DAYCARE',
+        type: 'GET_DAYCARES',
         payload: bussiness
     }
 }
@@ -26,7 +26,9 @@ export const fetchGetDaycare = () => {
             if (data.error) {
                 alert(data.error)
               } else {
-                const myDaycares = data.attributes.my_daycare
+                let myDaycares = data
+                // "why i could use data.attributes.my_daycares to retrive only my_daycares?"
+                console.log("Hi from actions, my myDaycares is: ", myDaycares)
                 dispatch(getDaycares(myDaycares))
               }
         })
@@ -59,7 +61,7 @@ export const fetchAddDaycare = (bussiness) => {
                 alert(data.error)
             } else {
                 dispatch(addDaycare(data))
-                alert('Successfully bookmarked');
+                alert('Successfully added to your list');
             }
         })
         .catch(console.log)
