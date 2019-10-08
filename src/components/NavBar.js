@@ -1,14 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Login from './Login.js';
-import Logout from './Logout.js';
+import { NavLink } from "react-router-dom";
 
-
-const NavBar = ({ currentUser }) => {
+const NavBar = ({ loggedIn }) => {
     return (
         <nav className="NavBar">
             <div >
-                { currentUser ? <Logout/> : <Login/> }
+                <NavLink exact to="/search">Search </NavLink> 
+                <NavLink exact to="/my-daycares"> My Daycares </NavLink> 
+                { loggedIn ? <NavLink exact to="/logout"> Logout </NavLink> : <NavLink exact to="/login" >Login</NavLink>} <br></br>
             </div>
             <hr></hr>
         </nav>
@@ -17,9 +17,10 @@ const NavBar = ({ currentUser }) => {
 
 const mapStateToProps = ({ currentUser }) => {
     return {
-        currentUser
+        currentUser,
+        loggedIn: !!currentUser
     }
 }
 
-
 export default connect(mapStateToProps)(NavBar)
+
