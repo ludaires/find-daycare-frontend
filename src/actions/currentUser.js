@@ -1,3 +1,4 @@
+import { resetSignupForm } from "./signupForm.js"
 //synchronous action creators
 export const setCurrentUser = user => {
     return {
@@ -13,6 +14,33 @@ export const clearCurrentUser = () => {
 }
 
 //asynchronous action creators
+export const signup = (credentials, history) => {
+    return dispatch => {
+      const userInfo = {
+        user: credentials
+      }
+      return fetch("http://localhost:3001/api/v1/signup", {
+        credentials: "include",
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userInfo)
+      })
+        .then(r => r.json())
+        .then(response => {
+          if (response.error) {
+            alert(response.error)
+          } else {
+            dispatch(setCurrentUser(response.data))
+            dispatch(resetSignupForm())
+            history.push('/')
+          }
+        })
+        .catch(console.log)
+    }
+  }
+
 export const login = credentials => {
     return dispatch => {
         return fetch('http://localhost:3001/api/v1/login', {
@@ -62,7 +90,7 @@ export const getCurrentUser = () => {
 export const logout = e => {
     return dispatch => {
         dispatch(clearCurrentUser())
-        return fetch('http://localhost:3001/api/v1/logout', {
+        return fetch('http://localhost:3001/api/v1/destroy', {
             credentials: "include",
             method: "DELETE",
         })
