@@ -79,7 +79,7 @@ hr {
   font-weight: bold;
 }
 
-h1 {
+.search__form h1 {
   color: #fff;
   margin-bottom: 40px;
   font-size: 45px;
