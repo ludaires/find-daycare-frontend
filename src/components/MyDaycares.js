@@ -6,16 +6,10 @@ import { fetchGetDaycare } from '../actions/myDaycares.js';
 
 class MyDaycares extends React.Component {
 
-    componentDidMount(){
-        this.props.fetchGetDaycare(this.props.currentUser.id);
-    }
-
-
     render(){
         return (
             <div>
-                {this.props.daycares.length > 0 ? this.props.daycares.map(daycare => <DaycareCard key={daycare.id} daycare={daycare}/>) : null }
-                {console.log("Inside MyDaycare the user is:", this.props.currentUser)}
+                {this.props.daycares.length > 0 ? this.props.daycares.map(daycare => <DaycareCard key={daycare.id} daycare={daycare} user={this.props.currentUser}/>) : "" }
             </div>
         );
     }     
