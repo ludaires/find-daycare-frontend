@@ -8,10 +8,8 @@ import { fetchAddDaycare } from '../actions/myDaycares.js';
 // THIS COMPONENT DISPLAY THE RESULTS OF DAYCARES' SEARCH
 const ListDaycareFromYelp = (props) => {
 
-
    const handleOnClick = (e, daycare) => {
         e.preventDefault();
-        console.log("Inside handleOnClick")
         props.fetchAddDaycare(daycare)
     }
 
