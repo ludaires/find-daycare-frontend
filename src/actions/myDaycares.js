@@ -5,12 +5,28 @@ export const addDaycare = (bussiness) => {
     }
 }
 
-export const getDaycares = (bussiness) => {
+export const getDaycares = (bussinesses) => {
     return {
         type: 'GET_DAYCARES',
+        payload: bussinesses
+    }
+}
+
+export const deleteDaycare = (bussiness) => {
+    return {
+        type: 'DELETE_DAYCARE',
         payload: bussiness
     }
 }
+
+export const updateDaycare = (bussiness) => {
+    return {
+        type: 'UPDATE_DAYCARE',
+        payload: bussiness
+    }
+}
+
+
 // getting daycare from the backend
 export const fetchGetDaycare = (userId) => {
     return dispatch => {
@@ -26,8 +42,6 @@ export const fetchGetDaycare = (userId) => {
                 alert(data.error)
               } else {
                 let myDaycares = data
-                // "why i could use data.attributes.my_daycares to retrive only my_daycares?"
-                console.log("Hi from actions, my myDaycares is: ", myDaycares)
                 dispatch(getDaycares(myDaycares))
               }
         })
@@ -52,7 +66,7 @@ export const fetchAddDaycare = (bussiness) => {
             credentials: 'include',
             headers: {
             'Content-Type': 'application/json'
-        },
+            },
             body: JSON.stringify(daycare)
         }).then(res => res.json())
         .then(data => {
@@ -64,5 +78,20 @@ export const fetchAddDaycare = (bussiness) => {
             }
         })
         .catch(console.log)
+    }
+}
+
+
+export const fetchDeleteDaycare = ( bussiness, userId ) => {
+    const myDaycareId = bussiness.id
+    return dispatch => {
+        console.log(" mydaycare", myDaycareId)
+        let url = 'http://localhost:3001/api/v1/users/' + userId + '/my_daycares/' + myDaycareId 
+        console.log(" url", url)
+        dispatch(deleteDaycare(bussiness))
+        return fetch(url, {
+            credentials: "include",
+            method: 'DELETE',
+        })
     }
 }
