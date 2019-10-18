@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchDaycareFromYelp} from '../actions/searchDaycare.js';
+import ListDaycareFromYelp from './ListDaycareFromYelp.js';
 
 class SearchDaycare extends React.Component {
    
@@ -24,6 +25,7 @@ class SearchDaycare extends React.Component {
 
     render (){
         return (
+            <div>
             <div className="search">
                 <div className="search__form">
                     <form onSubmit={this.handleSubmit}>
@@ -32,6 +34,11 @@ class SearchDaycare extends React.Component {
                         <input className="search__btn" type="submit" value="Search"/>
                     </form>
                 </div>
+            </div>
+            <div>
+                <ListDaycareFromYelp/>
+            </div>
+
             </div>
         )   
     }   
