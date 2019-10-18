@@ -1,7 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Icon from '@mdi/react'
-import { mdiMapMarker } from '@mdi/js';
 import { updateDaycareForm, fetchUpdateDaycare } from '../actions/daycareForm.js';
 import { fetchDeleteDaycare } from '../actions/myDaycares.js';
 
@@ -32,16 +30,16 @@ class DaycareCard extends React.Component {
 
     render() {
         return (
-            <div key={this.props.daycare.id} className="daycare-card">
-                <h1 className="daycare__name">{this.props.daycare.name} </h1>
-                <h2 className="daycare__rating" >Rating: {this.props.daycare.rating} | Phone: {this.props.daycare.phone}</h2>              
-                <p className="daycare__address"> <Icon className="daycare__icon" path={mdiMapMarker} title="Daycare Address" description={this.props.daycare.location} size={1} color="red"/>Location: {this.props.daycare.location}</p>
-            <form onSubmit={this.handleSubmit} className="daycare__review">
+            <div key={this.props.daycare.id}>
+                <h1>{this.props.daycare.name}</h1>
+                <p>Location: {this.props.daycare.location}</p>
+                <p>Rating: {this.props.daycare.rating} | Phone: {this.props.daycare.phone}</p>              
+            <form onSubmit={this.handleSubmit}>
                 <label> Notes: 
-                    <input onChange={this.handleInputChange} type="text" name="notes" value={this.props.daycare.notes}/>
+                    <input onChange={this.handleInputChange} type="text" placeholder={this.props.daycare.notes} name="notes" value={this.props.daycare.notes}/>
                 </label> <br></br>                     
                 <label> Schedule a Visit
-                    <input onChange={this.handleInputChange} type="text" name="scheduleVisit" value={this.props.daycare.schedule_visit}/>
+                    <input onChange={this.handleInputChange} type="text" placeholder={this.props.daycare.schedule_visit} name="scheduleVisit" value={this.props.daycare.schedule_visit}/>
                 </label> <br></br>
                 <input type="submit" value="Save"/> 
             </form> 
