@@ -1,14 +1,28 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Logout from './Logout.js';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
+const useStyles = makeStyles(theme => ({
+    button: {
+      margin: theme.spacing(1),
+    },
+    input: {
+      display: 'none',
+    },
+  }));
 const NavBar = ({ loggedIn }) => {
+    const classes = useStyles();
     return (
         <nav className="NavBar">
             <div >
-                <NavLink exact to="/search">Search </NavLink> 
-                <NavLink exact to="/my-daycares"> My Daycares </NavLink> 
-                { loggedIn ? <NavLink exact to="/logout"> Logout </NavLink> : <NavLink exact to="/login" >Login</NavLink>} <br></br>
+                <Button className={classes.button} size="large" href={'/'}> Search </Button>
+                <Button className={classes.button} size="large" href={'/my-daycares'}> My Daycares </Button>
+                { loggedIn ? <Button className={classes.button} size="large" href={'/logout'}> Logout </Button> 
+                : 
+                <Button className={classes.button} size="large"href={'/login'}> Log In </Button>} <br></br>
             </div>
             <hr></hr>
         </nav>
@@ -23,4 +37,6 @@ const mapStateToProps = ({ currentUser }) => {
 }
 
 export default connect(mapStateToProps)(NavBar)
+
+
 
