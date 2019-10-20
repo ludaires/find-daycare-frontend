@@ -7,6 +7,11 @@ export const updateDaycareForm = (daycareForm) => {
     }
 }
 
+export const resetDaycareForm = () => {
+    return {
+        type: "RESET_DAYCARE_FORM"
+    }
+}
 
 export const fetchUpdateDaycare = (daycareFormData, userId, daycareId) => {
     const sendDaycareData = {
@@ -30,6 +35,7 @@ export const fetchUpdateDaycare = (daycareFormData, userId, daycareId) => {
             } 
             else {
                 dispatch(updateDaycare(res))
+                // dispatch(resetDaycareForm())
             }
         })
         .catch(console.log)
