@@ -3,6 +3,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { updateSignupForm } from "../actions/signupForm.js"
 import { signup } from "../actions/currentUser.js"
+import { Link } from 'react-router-dom';
 
 
 const Signup = ({ signupFormData, updateSignupForm, signup, history }) => {
@@ -22,18 +23,21 @@ const Signup = ({ signupFormData, updateSignupForm, signup, history }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label name="username"> Username: 
-        <input placeholder="username" value={signupFormData.name} name="username" type="text" onChange={handleUserInfoInputChange} />
-      </label><br></br>
-      <label name="email"> Email: 
-        <input placeholder="email" value={signupFormData.email} name="email" type="text" onChange={handleUserInfoInputChange} />
-      </label><br></br>
-      <label name="password"> Password: 
-        <input placeholder="password" value={signupFormData.password} name="password" type="password" onChange={handleUserInfoInputChange} />
-      </label><br></br>
-      <input type="submit" value="Sign Up"/>
-    </form>
+    <div  className="login__page">
+      <form className="register__form" onSubmit={handleSubmit}>
+        <label name="username">
+          <input className="register__input" placeholder="Username" value={signupFormData.name} name="username" type="text" onChange={handleUserInfoInputChange} />
+        </label><br></br>
+        <label name="email">
+          <input className="register__input" placeholder="email" value={signupFormData.email} name="email" type="text" onChange={handleUserInfoInputChange} />
+        </label><br></br>
+        <label name="password">
+          <input className="register__input" placeholder="password" value={signupFormData.password} name="password" type="password" onChange={handleUserInfoInputChange} />
+        </label><br></br>
+        <input className="register__button" type="submit" value="Create"/>
+        <p className="register__message">Already registered? <Link to="/login">Sign In</Link></p>
+      </form>
+    </div>
   )
 }
 
