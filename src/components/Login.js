@@ -24,11 +24,11 @@ const Login = ({loginFormData, updateLoginForm, login, history}) => {
     return (
        <div className="login__page">
             <form className="register__form" onSubmit={handleSubmit}>
-                <label name="username">  
-                    <input className="register__input" placeholder="Username" onChange={handleInputChange} value={loginFormData.username} placeholder="username" type="text" name="username"/>
+                <label>  
+                    <input className="register__input"  onChange={handleInputChange} value={loginFormData.username} placeholder="username" type="text" name="username"/>
                 </label> <br></br>
-                <label name="password">
-                    <input className="register__input" onChange={handleInputChange} placeholder="Password" value={loginFormData.password} placeholder="password" type="password" name="password"/>
+                <label>
+                    <input className="register__input" onChange={handleInputChange} value={loginFormData.password} placeholder="password" type="password" name="password"/>
                 </label><br></br>
                 <input className="register__button" type="submit" value="Login"/>
                 <p className="register__message">Not registered? <Link to="/signup">Create an account</Link></p>
