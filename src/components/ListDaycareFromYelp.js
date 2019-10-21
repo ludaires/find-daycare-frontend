@@ -28,6 +28,7 @@ const ListDaycareFromYelp = (props) => {
                         <p className="daycare__address"> <Icon className="daycare__icon" path={mdiMapMarker} title="Daycare Address" description={daycare.location.display_address} size={1} color="red"/> {daycare.location.address1} {daycare.location.city}, {daycare.location.state} {daycare.location.zip_code}| {daycare.display_phone} </p>
                     {/* </div> */}
                     <h2 className="daycare__rating">Rating: {daycare.rating}</h2>  
+                    <p className="daycare__review"><strong>Reviews</strong></p>
                     <Reviews reviews={daycare.reviews}/>
                     {/* </div> */}
                     <Button onClick={(e) => handleOnClick(e, daycare)}
